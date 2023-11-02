@@ -3,7 +3,7 @@ import csv
 import datetime
 import os
 import subprocess
-
+import ytd
 
 app = Flask(__name__)
 
@@ -49,14 +49,9 @@ def about():
 def download():
     url = request.form['url']
 
-    # Ensure the URL is safe to use in your script
-    # You can validate the URL here, e.g., by checking the domain
+    ytd.download_video(url)
 
-    # Call the 'ytd.py' script with the URL
-    result = subprocess.run(['python', 'api/ytd.py', url], stdout=subprocess.PIPE, text=True)
-    output = result.stdout
-
-    return jsonify({'output': output})
+    return redirect('/')
 
 
 
