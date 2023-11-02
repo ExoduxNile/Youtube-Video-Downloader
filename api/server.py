@@ -3,7 +3,7 @@ import csv
 import datetime
 import os
 import subprocess
-import yt_dlp
+import yt_dlp as ytd
 
 app = Flask(__name__)
 
