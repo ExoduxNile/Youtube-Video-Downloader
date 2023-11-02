@@ -49,7 +49,7 @@ def about():
 def download():
     url = request.form['url']
 
-    ytd.download_video(url)
+    ytd.download(url)
 
     return redirect('/')
 
