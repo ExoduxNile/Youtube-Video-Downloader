@@ -40,9 +40,22 @@ def submit_form():
 def about():
     return render_template('about.html')
 
-@app.route('/video')
-def video():
-    return render_template('video.html')
+
+
+@app.route('/download', methods=['POST'])
+def download():
+    url = request.form['url']
+
+    # Ensure the URL is safe to use in your script
+    # You can validate the URL here, e.g., by checking the domain
+
+    # Call the 'ytd.py' script with the URL
+    result = subprocess.run(['python', 'ytd.py', url], stdout=subprocess.PIPE, text=True)
+    output = result.stdout
+
+    return jsonify({'output': output})
+
+
 
 
 @app.route('/robots.txt')

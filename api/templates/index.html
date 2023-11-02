@@ -286,7 +286,7 @@ button {
 
 
 
-  <form method="POST">
+  <form id="urlForm">
     <h3 align="center" style="margin-top:15px;margin-bottom:15px;">Convert & Download YouTube Videos</h3>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -323,7 +323,22 @@ button {
     </center>
 </form>
 
-
+<div id="output"></div>
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const url = document.getElementById('url').value;
+            fetch('/download', {
+                method: 'POST',
+                body: new URLSearchParams({ 'url': url }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').textContent = data.output;
+            });
+        });
+    </script>
 
 </body>
 

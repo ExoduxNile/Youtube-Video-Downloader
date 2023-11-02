@@ -1,11 +1,10 @@
 import yt_dlp
 
-url = 'https://www.youtube.com/shorts/AsQK3BDqYII'
+url = sys.argv[1]
 
-try:
-    options = {
-        'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
-    }
+options = {
+    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+}
 
-    with yt_dlp.YoutubeDL(options) as ydl:
-        ydl.download([url])
+with yt_dlp.YoutubeDL(options) as ydl:
+    ydl.download([url])
