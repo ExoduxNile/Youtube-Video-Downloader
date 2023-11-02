@@ -1,4 +1,5 @@
 import yt_dlp
+import sys
 
 url = sys.argv[1]
 
