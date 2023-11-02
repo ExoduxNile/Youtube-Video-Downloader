@@ -53,7 +53,7 @@ def download():
     # You can validate the URL here, e.g., by checking the domain
 
     # Call the 'ytd.py' script with the URL
-    result = subprocess.run(['python', 'ytd.py', url], stdout=subprocess.PIPE, text=True)
+    result = subprocess.run(['python', '/api/ytd.py', url], stdout=subprocess.PIPE, text=True)
     output = result.stdout
 
     return jsonify({'output': output})
