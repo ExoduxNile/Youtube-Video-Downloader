@@ -40,9 +40,9 @@ def submit_form():
 def about():
     return render_template('about.html')
 
-@app.route('/search')
-def search():
-    return render_template('search.html')
+@app.route('/video')
+def video():
+    return render_template('video.html')
 
 
 @app.route('/robots.txt')
