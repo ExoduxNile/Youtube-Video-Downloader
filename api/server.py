@@ -4,6 +4,7 @@ import datetime
 import os
 import subprocess
 import yt_dlp as ytd
+from ytd import download_video  # Import the download_video function
 
 app = Flask(__name__)
 
@@ -49,7 +50,7 @@ def about():
 def download():
     url = request.form['url']
 
-    ytd.download(url)
+    ytd.download_video(url)
 
     return redirect('/')
 
