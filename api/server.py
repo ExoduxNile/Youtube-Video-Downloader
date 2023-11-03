@@ -46,14 +46,21 @@ def about():
 
 
 
-@app.route('/download', methods=['POST'])
-def download():
-    url = request.form['url']
+@app.route('/download', methods=['GET', 'POST'])
+def download_video():
+    if request.method == 'POST':
+        url = request.form['url']
+        
+        options = {
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+        }
 
-    ytd.download_video(url)
+        with yt_dlp.YoutubeDL(options) as ydl:
+            ydl.download([url])
 
-    return redirect('/success')
+        return "Video downloaded!"
 
+    return render_template('index.html')
 
 
 
