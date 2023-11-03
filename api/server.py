@@ -48,7 +48,7 @@ def about():
 
 
 
-@app.route('/', methods=['GET', 'POST'])  
+@app.route('/download', methods=['GET', 'POST'])  
 def download_video():
     if request.method == 'POST':
         url = request.form['url']
