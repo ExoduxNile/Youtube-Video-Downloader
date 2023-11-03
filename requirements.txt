@@ -1,3 +1,4 @@
+ffmpeg-python
 Flask==2.0.3
 Flask-Login==0.5.0
 Jinja2==3.0.3
