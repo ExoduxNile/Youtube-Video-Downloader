@@ -48,6 +48,28 @@ def about():
 
 
 
+@app.route('/', methods=['GET', 'POST'])  
+def download_video():
+    if request.method == 'POST':
+        url = request.form['url']
+
+        # Build the command to call the Node.js script
+        command = ['node', '/node_module/bin/@ffmpeg/ffmpeg',  # Replace with the actual path to your ffmpeg.js script
+                   '-i', url,
+                   '-c:v', 'libx264',
+                   '-crf', '28',
+                   'output.mp4'
+                   ]
+
+        # Execute the Node.js script with subprocess
+        subprocess.run(command)
+
+        return "Video downloaded!"
+
+    return render_template('index.html')
+
+
+
 @app.route('/robots.txt')
 def noindex():
     r = Response(response="User-Agent: *\nDisallow: \n",
