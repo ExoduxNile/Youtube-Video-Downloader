@@ -324,21 +324,18 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const url = document.getElementById('url').value;
-
-  const formData = new URLSearchParams();
-  formData.append('url', url);
+  const data = { url };  // Create a JavaScript object
 
   const response = await fetch('/download', {
     method: 'POST',
-    body: formData,  // Use form data
+    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json'
     }
   });
 
-  const data = await response.json();
-
-  document.getElementById('output').textContent = data.output;
+  const responseData = await response.json();
+  document.getElementById('output').textContent = responseData.output;
 });
 
     </script>

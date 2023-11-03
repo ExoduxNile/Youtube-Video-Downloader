@@ -47,8 +47,11 @@ def about():
 @app.route('/download', methods=['POST'])
 def download():
     data = request.get_json()
+
+    if data is None or 'url' not in data:
+        return jsonify({'error': 'Invalid request data'})
+
     url = data['url']
-    #url = request.form['url']
 
     # Ensure the URL is safe to use in your script
     # You can validate the URL here, e.g., by checking the domain
@@ -58,6 +61,7 @@ def download():
     output = result.stdout
 
     return jsonify({'output': output})
+
 
 
 
