@@ -7,13 +7,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
     "@vercel/analytics": "^0.1.6",
     "antd": "^4.20.7",
     "file-type": "^17.1.2",
     "jszip": "^3.10.1",
-    "next": "12.1.4",
+    "next": "^12.1.4",
     "numerify": "^1.2.9",
     "query-string": "^8.1.0",
     "react": "18.0.0",
