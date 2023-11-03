@@ -46,7 +46,9 @@ def about():
 
 @app.route('/download', methods=['POST'])
 def download():
-    url = request.form['url']
+    data = request.get_json()
+    url = data['url']
+    #url = request.form['url']
 
     # Ensure the URL is safe to use in your script
     # You can validate the URL here, e.g., by checking the domain
