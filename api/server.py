@@ -50,6 +50,8 @@ def about():
 
 @app.route('/', methods=['GET', 'POST'])
 def download_video():
+    pyexecjs.eval("const { /api/static } = require('ffmpeg-core.js')")
+    ffmpeg = pyexecjs.get('ffmpeg')
     if request.method == 'POST':
         url = request.form['url']
         
