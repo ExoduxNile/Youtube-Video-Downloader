@@ -49,18 +49,19 @@ def about():
 
 @app.route('/', methods=['GET', 'POST'])
 def download_video():
-        url = request.form['url']
-        
-        options = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
-        }
 
-        with yt_dlp.YoutubeDL(options) as ydl:
-            ffmpeg.ydl.download([url])
+  url = request.form['url']
 
-        return "Video downloaded!"
+  options = {
+    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' 
+  }
 
-    return render_template('index.html')
+  with yt_dlp.YoutubeDL(options) as ydl:
+    ydl.download([url])
+  
+  return "Video downloaded!"
+
+  return render_template('index.html')
 
 
 
