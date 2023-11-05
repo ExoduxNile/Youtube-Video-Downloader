@@ -51,10 +51,6 @@ def about():
 
 @app.route('/', methods=['GET', 'POST'])
 def download_video():
-    os.environ['EXECJS_RUNTIME'] = 'Node'
-    execjs.eval("const { /api/static } = require('ffmpeg-core.js')")
-    ffmpeg = pyexecjs.get('ffmpeg')
-    if request.method == 'POST':
         url = request.form['url']
         
         options = {
@@ -62,7 +58,7 @@ def download_video():
         }
 
         with yt_dlp.YoutubeDL(options) as ydl:
-            ydl.download([url])
+            ffmpeg.ydl.download([url])
 
         return "Video downloaded!"
 
