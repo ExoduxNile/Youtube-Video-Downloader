@@ -7,6 +7,7 @@ import yt_dlp
 import ffmpeg
 import execjs
 os.environ['EXECJS_RUNTIME'] = 'Node'
+
 app = Flask(__name__)
 
 
@@ -50,7 +51,8 @@ def about():
 
 @app.route('/', methods=['GET', 'POST'])
 def download_video():
-    os.environ['EXECJS_RUNTIME'] = 'Node'execjs.eval("const { /api/static } = require('ffmpeg-core.js')")
+    os.environ['EXECJS_RUNTIME'] = 'Node'
+    execjs.eval("const { /api/static } = require('ffmpeg-core.js')")
     ffmpeg = pyexecjs.get('ffmpeg')
     if request.method == 'POST':
         url = request.form['url']
