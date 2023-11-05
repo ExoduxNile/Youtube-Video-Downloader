@@ -77,5 +77,5 @@ def noindex():
     r.headers["Content-Type"] = "text/plain; charset=utf-8"
     return r
 
-if __name__ == '__server__':
+if __name__ == '__main__':
     app.run()
