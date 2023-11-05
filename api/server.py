@@ -5,8 +5,6 @@ import os
 import subprocess
 import yt_dlp
 import ffmpeg
-import execjs
-os.environ['EXECJS_RUNTIME'] = 'Node'
 
 app = Flask(__name__)
 
