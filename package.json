@@ -7,7 +7,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "ytdl-core": "^4.11.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
@@ -15,11 +14,12 @@
     "antd": "^4.20.7",
     "file-type": "^17.1.2",
     "jszip": "^3.10.1",
-    "next": "12.1.4",
+    "next": "^12.1.4",
     "numerify": "^1.2.9",
     "query-string": "^8.1.0",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "eslint": "8.12.0",
